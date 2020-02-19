@@ -1,0 +1,30 @@
+{
+  "name": "ETService",
+  "version": "1.0.0",
+  "description": "use typescript && express && typeorm build a todos service app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tslintInit": "node ./node_modules/.bin/tslint --init",
+    "tscInit": "node ./node_modules/.bin/tsc --init",
+    "tslintCheck": "node ./node_modules/.bin/tslint -c tsconfig.json './src/**/*.ts'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run tslintCheck"
+    }
+  },
+  "keywords": [
+    "typescript",
+    "express.js"
+  ],
+  "author": "hotfireeagle",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^13.7.2",
+    "husky": "^4.2.3",
+    "ts-node": "^8.6.2",
+    "tslint": "^6.0.0",
+    "typescript": "^3.7.5"
+  }
+}
