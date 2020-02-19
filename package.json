@@ -8,7 +8,8 @@
     "hookInit": "node ./node_modules/.bin/husky-run",
     "tslintInit": "node ./node_modules/.bin/tslint --init",
     "tscInit": "node ./node_modules/.bin/tsc --init",
-    "tslintCheck": "node ./node_modules/.bin/tslint -c tslint.json './src/**/*.ts'"
+    "tslintCheck": "node ./node_modules/.bin/tslint -c tslint.json './src/**/*.ts'",
+    "passwordCheck": "ts-node ./gitHook/dbPsHook"
   },
   "keywords": [
     "typescript",
@@ -25,7 +26,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run tslintCheck"
+      "pre-commit": "npm run tslintCheck",
+      "pre-push": "npm run passwordCheck"
     }
+  },
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.22"
   }
 }
