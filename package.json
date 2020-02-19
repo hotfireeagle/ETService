@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "hookInit": "node ./node_modules/.bin/husky-run",
     "tslintInit": "node ./node_modules/.bin/tslint --init",
     "tscInit": "node ./node_modules/.bin/tsc --init",
     "tslintCheck": "node ./node_modules/.bin/tslint -c tslint.json './src/**/*.ts'"
@@ -23,6 +24,8 @@
     "typescript": "^3.7.5"
   },
   "husky": {
-    "pre-commit": "npm run tslintCheck"
+    "hooks": {
+      "pre-commit": "npm run tslintCheck"
+    }
   }
 }
