@@ -1,6 +1,6 @@
-# logs
-log
-*.log
-
-# useless directory
+.idea/
+.vscode/
 node_modules/
+build/
+tmp/
+temp/
