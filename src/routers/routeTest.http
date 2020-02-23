@@ -1,0 +1,14 @@
+### 测试获取所有用户
+GET http://127.0.0.1:3000/users
+
+
+
+### 测试新增用户
+POST http://127.0.0.1:3000/users
+Content-Type: application/json
+
+{
+  "firstName": "be",
+  "lastName": "fine",
+  "age": 30
+}

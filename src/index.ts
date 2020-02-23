@@ -1,18 +1,17 @@
-import "reflect-metadata";
-import {createConnection} from "typeorm";
-import {User} from "./entity/User";
+import express from 'express'
+import http from 'http'
+import { createConnection } from 'typeorm'
+import 'reflect-metadata'
+import bodyParser from 'body-parser'
+import { userRouter } from './routers/user'
 
-createConnection().then(async connection => {
+createConnection()
 
-    const user = new User();
-    user.firstName = "Timber";
-    user.lastName = "Saw";
-    user.age = 25;
-    await connection.manager.save(user);
+const app = express()
 
-    const users = await connection.manager.find(User);
+app.use(bodyParser.json())
+app.use('/users', userRouter)
 
+const server = http.createServer(app)
 
-}).catch(err => {
-  throw new Error(err)
-});
+app.listen(3000)
